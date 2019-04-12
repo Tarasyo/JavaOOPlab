@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collection;
 
+import ie.cct.objectorientedconstructs.s2017284.Feed;
 import ie.cct.objectorientedconstructs.s2017284.FeedFactory;
 import ie.cct.objectorientedconstructs.s2017284.FeedList;
 
@@ -16,14 +17,17 @@ public class FeedReader {
 
   public static void main(String[] args) throws IOException {
     FeedFactoryInterface factory = new FeedFactory();
-    String file = "YOUR LOCATION FOR YOUR FILE \\test.rss";
+    String file = "C:\\Users\\Tarasyo\\Downloads\\Source-Code\\Lab1\\src\\ie\\cct\\objectorientedconstructs\\test.rss";
     BufferedReader in = new BufferedReader(new FileReader(file));
     FeedInterface feed = factory.createFeed(in);
     
     System.out.println("=== Trying find items ===");
+
+
     
     Collection <FeedItem> feedItems = feed.findItems("less");
-        
+
+
     for(FeedItem items : feedItems) {
       System.out.println(items.getTitle());
       System.out.println(items.getContent());
